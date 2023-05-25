@@ -12,7 +12,7 @@ export const catSlice = createSlice({
     },
     getCatsSuccess: (state, action) => {
       state.data = action.payload;
-      state.isLoading = true;
+      state.isLoading = false;
     },
     getCatsFailure: (state) => {
       state.isLoading = false;
