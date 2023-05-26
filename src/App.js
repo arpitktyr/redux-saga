@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getCatsFetch } from "./redux/catSlice";
 
