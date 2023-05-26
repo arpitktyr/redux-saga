@@ -84,10 +84,58 @@ function App() {
               />
             </div>
             <div className="right">
-              <h2>{highlightSearchKeyword(cat.name, keyword)}</h2>
-              <h4>{cat.temperament}</h4>
+              <a
+                href={cat.wikipedia_url}
+                className="cat-name"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {highlightSearchKeyword(cat.name, keyword)}
+              </a>
+
+              <h4 className="tempera">{cat.temperament}</h4>
+              <h5 className="origin">
+                Origin Place : {cat.origin} &nbsp; Weight : {cat.weight.metric}{" "}
+                Kg.
+              </h5>
               <p>{cat.description}</p>
-              <a href={cat.wikipedia_url}>More Detail</a>
+              <div className="row">
+                <div className="left">
+                  <div className="bar">
+                    <label htmlFor="adapt">Adaptability </label>
+                    <progress
+                      id="adapt"
+                      value={cat.adaptability}
+                      max="5"
+                    ></progress>
+                  </div>
+                  <div className="bar">
+                    <label htmlFor="energy">Energy Level</label>
+                    <progress
+                      id="energy"
+                      value={cat.energy_level}
+                      max="5"
+                    ></progress>
+                  </div>
+                  <div className="bar">
+                    <label htmlFor="child">Child Friendly </label>
+                    <progress
+                      id="child"
+                      value={cat.child_friendly}
+                      max="5"
+                    ></progress>
+                  </div>
+                </div>
+                <div className="right">
+                  <a
+                    href={cat.wikipedia_url}
+                    className="bottom-link"
+                    target="_blank"
+                  >
+                    More Details
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))

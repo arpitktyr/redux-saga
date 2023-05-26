@@ -66,3 +66,54 @@
   padding: 10px 23px 0;
   display: block;
 }
+.cat-name {
+  text-align: center;
+  font-size: 28px;
+  color: #ea580c;
+  font-weight: 700;
+}
+mark {
+  color: #ea580c;
+}
+.bottom-link {
+  color: #d97710;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #73706c2b;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.5s;
+  box-shadow: 2px 3px 4px #00000024;
+}
+
+.bottom-link:hover {
+  color: white;
+  background-color: #d97710;
+}
+
+.tempera {
+  margin: 10px 0;
+}
+.origin {
+  margin: 0;
+}
+
+.bar {
+  margin: 10px;
+}
+
+progress {
+  accent-color: coral;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row .right {
+  align-self: center;
+  padding-right: 40px;
+}
