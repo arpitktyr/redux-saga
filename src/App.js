@@ -131,6 +131,7 @@ function App() {
                     href={cat.wikipedia_url}
                     className="bottom-link"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     More Details
                   </a>
