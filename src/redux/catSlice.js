@@ -6,6 +6,7 @@ export const catSlice = createSlice({
     data: [],
     isLoading: false,
     haveError: "",
+    hasMoreData: true,
   },
   reducers: {
     getCatsFetch: (state) => {
@@ -13,8 +14,9 @@ export const catSlice = createSlice({
       state.haveError = "";
     },
     getCatsSuccess: (state, action) => {
-      state.data = action.payload;
+      state.data = [...state.data, ...action.payload];
       state.isLoading = false;
+      state.hasMoreData = action.payload.length > 0;
     },
     getCatsFailure: (state, action) => {
       state.isLoading = false;

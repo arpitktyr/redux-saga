@@ -19,7 +19,7 @@ function App() {
   //console.log(keyword);
 
   useEffect(() => {
-    dispatch(getCatsFetch());
+    dispatch(getCatsFetch(1));
   }, [dispatch]);
 
   //For implementing filter with debounce
