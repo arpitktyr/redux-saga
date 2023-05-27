@@ -1,9 +1,11 @@
-//mixin for mobile css
+//mixin for mobile css very helpful for writing media quries
 @mixin media-mobile() {
   @media screen and (max-width: 667px) {
     @content;
   }
 }
+
+//------ Main Application Css  ------- //
 
 .main {
   max-width: 880px;
@@ -24,6 +26,60 @@
   @include media-mobile {
     font-size: 30px;
   }
+}
+.per-page {
+  padding: 0 20px;
+  display: inline-block;
+  label {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  select {
+    min-width: 70px;
+    padding: 5px 10px 5px 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 4px #00000024;
+  }
+}
+.page-list {
+  .ul-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  .page-item {
+    .page-link {
+      padding: 10px 10px;
+      min-width: 40px;
+      border: 1px solid #73706c2b;
+      border-radius: 10px;
+      transition: background-color 0.5s;
+      box-shadow: 2px 3px 4px #00000024;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background-color: #ea580c;
+        border-color: #d97710;
+      }
+    }
+
+    &.active {
+      .page-link {
+        cursor: default;
+        color: #fff;
+        background-color: #ea580c;
+        border-color: #d97710;
+      }
+    }
+  }
+}
+
+.filter-area {
+  padding: 10px 0;
 }
 
 .card {
@@ -105,9 +161,10 @@
 
 .search-heading {
   max-width: 880px;
-  padding: 10px 23px 0;
-  display: block;
+  padding: 4px 20px;
+  display: inline-block;
 }
+
 .cat-name {
   text-align: center;
   font-size: 28px;
@@ -139,7 +196,7 @@ mark {
   margin: 10px 0;
 }
 .origin {
-  margin: 0;
+  margin: 0 0 10px;
 }
 
 progress {
@@ -173,4 +230,89 @@ progress {
   font-size: 18px;
   margin: 0px 15px 10px;
   text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+
+  .model-content {
+    position: relative;
+
+    img {
+      height: 500px;
+      object-fit: contain;
+      @include media-mobile() {
+        display: none;
+      }
+    }
+
+    .card {
+      .left {
+        width: 50%;
+
+        @include media-mobile() {
+          width: 100%;
+        }
+      }
+      .right {
+        width: 50%;
+        @include media-mobile() {
+          width: 100%;
+          margin-top: 0px;
+          text-align: left;
+        }
+      }
+    }
+
+    .row {
+      justify-content: flex-start;
+      label {
+        min-width: 125px;
+        display: inline-block;
+      }
+      .left {
+        width: auto;
+
+        @include media-mobile() {
+          width: 100%;
+        }
+      }
+      .right {
+        width: auto;
+
+        @include media-mobile() {
+          width: 100%;
+        }
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 33px;
+      top: 33px;
+      background: white;
+      border: 1px solid #000;
+      border-radius: 5px;
+      box-shadow: 2px 3px 4px #00000024;
+      cursor: pointer;
+    }
+  }
+}
+.quality {
+  background-color: #ea580c;
+  color: #fff;
+  box-shadow: 3px 4px 6px #00000092;
+  padding: 4px 10px;
+  border-radius: 15px;
+  margin: 2px 5px 15px;
+  display: inline-block;
 }

@@ -14,7 +14,8 @@ export const catSlice = createSlice({
       state.haveError = "";
     },
     getCatsSuccess: (state, action) => {
-      state.data = [...state.data, ...action.payload];
+      //state.data = [...state.data, ...action.payload];
+      state.data = action.payload;
       state.isLoading = false;
       state.hasMoreData = action.payload.length > 0;
     },
