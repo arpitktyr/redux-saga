@@ -69,8 +69,6 @@ function App() {
 
   //For implementing filter with debounce
   useEffect(() => {
-    listDiv.current.focus();
-    window.scrollTo({ top: 0, behavior: "smooth" });
     const filteredCats = data.filter((cat) => {
       return cat.name.toLowerCase().includes(keyword.toLowerCase());
     });
@@ -92,7 +90,11 @@ function App() {
 
   // Handle page click event
   const handlePageClick = (page) => {
-    if (page !== currentPage) setCurrentPage(page);
+    if (page !== currentPage) {
+      listDiv.current?.focus();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setCurrentPage(page);
+    }
   };
 
   const handleItemsPerPageChange = (event) => {
