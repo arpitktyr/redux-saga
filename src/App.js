@@ -155,14 +155,9 @@ function App() {
                 />
               </div>
               <div className="right">
-                <a
-                  href={cat.wikipedia_url}
-                  className="cat-name"
-                  rel="noreferrer"
-                  target="_blank"
-                >
+                <p className="cat-name">
                   {highlightSearchKeyword(cat.name, keyword)}
-                </a>
+                </p>
 
                 <h4 className="tempera">{cat.temperament}</h4>
                 <h5 className="origin">

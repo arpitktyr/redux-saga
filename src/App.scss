@@ -168,7 +168,7 @@
 }
 
 .cat-name {
-  text-align: center;
+  margin: 10px 0;
   font-size: 28px;
   color: #ea580c;
   font-weight: 700;
@@ -241,10 +241,11 @@ progress {
   width: 100%;
   height: 100%;
   overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  background: #080808ab;
+
+  .bottom-link {
+    margin: 5px 0;
+  }
 
   .model-content {
     position: relative;
