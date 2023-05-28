@@ -72,76 +72,98 @@ function InfiniteScrolling() {
 
   return (
     <div className="main">
-      {/* ... */}
-      {filteredCats.map((cat, index) => (
-        <div
-          key={cat.id}
-          className="card"
-          ref={index === filteredCats.length - 1 ? lastCatElementRef : null}
-        >
-          <div className="left">
-            <img
-              src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
-              alt={cat.name}
-            />
-          </div>
-          <div className="right">
-            <a
-              href={cat.wikipedia_url}
-              className="cat-name"
-              rel="noreferrer"
-              target="_blank"
-            >
-              {highlightSearchKeyword(cat.name, keyword)}
-            </a>
+      <h1>Cat Species Detail </h1>
+      <input
+        type="search"
+        name="search"
+        className="search"
+        placeholder="Search the cats"
+        onChange={debounceOnChangeHandler}
+      />
+      {keyword && (
+        <span className="search-heading">
+          Search Result for- <b>{keyword}</b>
+        </span>
+      )}
+      {haveError ? (
+        <p className="no-results">{haveError}</p>
+      ) : isLoading ? (
+        <p className="loading">
+          <img src="loading.gif" alt="Data Loading" />
+        </p>
+      ) : filteredCats.length === 0 ? (
+        <p className="no-results">No results found.</p>
+      ) : (
+        filteredCats.map((cat, index) => (
+          <div
+            key={cat.id}
+            className="card"
+            ref={index === filteredCats.length - 1 ? lastCatElementRef : null}
+          >
+            <div className="left">
+              <img
+                src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
+                alt={cat.name}
+              />
+            </div>
+            <div className="right">
+              <a
+                href={cat.wikipedia_url}
+                className="cat-name"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {highlightSearchKeyword(cat.name, keyword)}
+              </a>
 
-            <h4 className="tempera">{cat.temperament}</h4>
-            <h5 className="origin">
-              Origin Place : {cat.origin} &nbsp; Weight : {cat.weight.metric}{" "}
-              Kg.
-            </h5>
-            <p>{cat.description}</p>
-            <div className="row">
-              <div className="left">
-                <div className="bar">
-                  <label htmlFor="adapt">Adaptability </label>
-                  <progress
-                    id="adapt"
-                    value={cat.adaptability}
-                    max="5"
-                  ></progress>
+              <h4 className="tempera">{cat.temperament}</h4>
+              <h5 className="origin">
+                Origin Place : {cat.origin} &nbsp; Weight : {cat.weight.metric}{" "}
+                Kg.
+              </h5>
+              <p>{cat.description}</p>
+              <div className="row">
+                <div className="left">
+                  <div className="bar">
+                    <label htmlFor="adapt">Adaptability </label>
+                    <progress
+                      id="adapt"
+                      value={cat.adaptability}
+                      max="5"
+                    ></progress>
+                  </div>
+                  <div className="bar">
+                    <label htmlFor="energy">Energy Level</label>
+                    <progress
+                      id="energy"
+                      value={cat.energy_level}
+                      max="5"
+                    ></progress>
+                  </div>
+                  <div className="bar">
+                    <label htmlFor="child">Child Friendly </label>
+                    <progress
+                      id="child"
+                      value={cat.child_friendly}
+                      max="5"
+                    ></progress>
+                  </div>
                 </div>
-                <div className="bar">
-                  <label htmlFor="energy">Energy Level</label>
-                  <progress
-                    id="energy"
-                    value={cat.energy_level}
-                    max="5"
-                  ></progress>
+                <div className="right">
+                  <a
+                    href={cat.wikipedia_url}
+                    className="bottom-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    More Details
+                  </a>
                 </div>
-                <div className="bar">
-                  <label htmlFor="child">Child Friendly </label>
-                  <progress
-                    id="child"
-                    value={cat.child_friendly}
-                    max="5"
-                  ></progress>
-                </div>
-              </div>
-              <div className="right">
-                <a
-                  href={cat.wikipedia_url}
-                  className="bottom-link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  More Details
-                </a>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
       {isLoading && (
         <p className="loading">
           <img src="loading.gif" alt="Data Loading" />
