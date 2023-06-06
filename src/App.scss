@@ -121,7 +121,7 @@
 }
 
 .bar {
-  label {
+  progress-label {
     @include media-mobile() {
       min-width: 100px;
       display: inline-block;
@@ -278,7 +278,7 @@ progress {
 
     .row {
       justify-content: flex-start;
-      label {
+      .progress-label {
         min-width: 125px;
         display: inline-block;
       }
@@ -318,4 +318,22 @@ progress {
   border-radius: 15px;
   margin: 2px 5px 15px;
   display: inline-block;
+}
+
+.progress-label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -88,69 +88,69 @@ const Modal = ({ onClose, isOpen, cat }) => {
             <div className="row">
               <div className="left">
                 <div className="bar">
-                  <label htmlFor="adapt">Adaptability </label>
+                  <span className="progress-label">Adaptability</span>
                   <progress
-                    id="adapt"
                     value={cat.adaptability}
                     max="5"
+                    aria-valuetext={`${cat.adaptability} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="energy">Energy Level</label>
+                  <span className="progress-label">Energy Level</span>
                   <progress
-                    id="energy"
                     value={cat.energy_level}
                     max="5"
+                    aria-valuetext={`${cat.energy_level} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="child">Child Friendly </label>
+                  <span className="progress-label">Child Friendly</span>
                   <progress
-                    id="child"
                     value={cat.child_friendly}
                     max="5"
+                    aria-valuetext={`${cat.child_friendly} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="child">Health Issues </label>
+                  <span className="progress-label">Health Issues </span>
                   <progress
-                    id="child"
-                    value={cat.health_issues}
+                    value={cat.affection_level}
                     max="5"
+                    aria-valuetext={`${cat.affection_level} out of 5`}
                   ></progress>
                 </div>
               </div>
               <div className="right">
                 <div className="bar">
-                  <label htmlFor="adapt">Affection Level </label>
+                  <span className="progress-label">Affection Level</span>
                   <progress
-                    id="adapt"
                     value={cat.affection_level}
                     max="5"
+                    aria-valuetext={`${cat.affection_level} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="energy">Stranger Friendly</label>
+                  <span className="progress-label">Stranger Friendly</span>
                   <progress
-                    id="energy"
                     value={cat.stranger_friendly}
                     max="5"
+                    aria-valuetext={`${cat.stranger_friendly} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="child">Dog Friendly </label>
+                  <span className="progress-label">Dog Friendly </span>
                   <progress
-                    id="child"
                     value={cat.dog_friendly}
                     max="5"
+                    aria-valuetext={`${cat.dog_friendly} out of 5`}
                   ></progress>
                 </div>
                 <div className="bar">
-                  <label htmlFor="child">Social Needs </label>
+                  <span className="progress-label">Social Needs </span>
                   <progress
-                    id="child"
                     value={cat.social_needs}
                     max="5"
+                    aria-valuetext={`${cat.social_needs} out of 5`}
                   ></progress>
                 </div>
               </div>
