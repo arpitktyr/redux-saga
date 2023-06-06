@@ -3,6 +3,7 @@ import "./App.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getCatsFetch } from "./redux/catSlice";
 import Modal from "./Model";
+import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -88,6 +89,10 @@ function App() {
     }
   }
 
+  // if (!pageNumbers.includes(currentPage)) {
+  //   setCurrentPage(1);
+  // }
+
   // Handle page click event
   const handlePageClick = (page) => {
     if (page !== currentPage) {
@@ -104,6 +109,9 @@ function App() {
 
   return (
     <div className="main">
+      <Helmet>
+        <title>Cat App {currentPage ? `| Page ${currentPage}` : ""}</title>
+      </Helmet>
       <h1>Cat Species Detail </h1>
       <input
         type="search"
@@ -116,17 +124,13 @@ function App() {
       <div className="filter-area">
         <div className="per-page">
           <label htmlFor="pagecount">Items Per Page</label>
-          <select
-            aria-labelledby="itemPerPage"
-            id="pagecount"
-            onChange={handleItemsPerPageChange}
-          >
+          <select id="pagecount" onChange={handleItemsPerPageChange}>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
-            <option value="30">40</option>
-            <option value="30">50</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
           </select>
         </div>
         {keyword && (
